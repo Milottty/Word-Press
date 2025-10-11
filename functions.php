@@ -15,6 +15,6 @@ if(!function_exists('ds_menu')){
     }
 }
 
-add_action('after_theme_menu', 'ds_menu');
+add_action('after_setup_theme', 'ds_menu');
 
 ?>

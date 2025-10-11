@@ -6,106 +6,221 @@ Description: The Digital School the , e is a modern, responsive, and user-friend
 Version: 1.0
 Tags: Cool, school, PHP
 */
-body{
-    background-color: #C3E1EB;
-}
 
-.site-header{
-    background-color: #86bbf7;
+.site-header {
+    background: #86bbf7;
     padding: 15px 20px;
-    text-align: center;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.site-nav { 
+  margin-left: auto;
 }
 
-.site-header .site-title{
+.site-header .site-title {
     color: #06206a;
-    font-size: 15px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
 }
 
-.site-footer{
-    background-color: #86bbf7;
-    padding: 20px;
+.site-header .site-title:hover {
+    text-decoration: underline;
+}
+
+.site-header .site-tagline {
+    margin: 5px 0 0;
+    color: #06206a;
+    font-size: 14px;
+}
+
+
+
+
+
+/* ===== Navigation (site-nav / main-menu) ===== */
+
+/* The UL that WordPress outputs */
+.site-nav .main-menu {
+  list-style: none;
+  display: block;                  /* vertical stack */
+}
+
+/* Top-level items */
+.site-nav .main-menu > li {
+  margin: 10px 0;                   /* space between items */
+}
+
+/* Links */
+.site-nav .main-menu > li > a {
+  display: block;                  /* whole row clickable */
+  padding: 10px 12px;
+  color: #06206a;
+  font-weight: 600;
+  text-decoration: none;           /* no underline */
+  border-radius: 6px;
+}
+
+/* Hover/focus state */
+.site-nav .main-menu > li > a:hover,
+.site-nav .main-menu > li > a:focus {
+  background: #c3e1eb;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Active/current page (WordPress adds these classes on <li>) */
+.site-nav .main-menu > li.current-menu-item > a,
+.site-nav .main-menu > li.current_page_item > a,
+.site-nav .main-menu > li.current-menu-ancestor > a {
+  background: #ffffff;
+  color: #06206a;
+  text-decoration: none;
+}
+
+/* ===== Submenus (dropdowns) ===== */
+.site-nav .main-menu li { position: relative; }
+
+.site-nav .main-menu li .sub-menu {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 6px;
+  display: none;                   /* hidden by default */
+  background: #f5f8ff;
+  border: 1px solid #dbe7f5;
+  border-radius: 8px;
+}
+
+/* Show submenu on hover/focus (desktop) */
+.site-nav .main-menu > li:hover > .sub-menu,
+.site-nav .main-menu > li:focus-within > .sub-menu {
+  display: block;
+}
+
+/* Submenu items */
+.site-nav .main-menu .sub-menu li a {
+  display: block;
+  padding: 8px 10px;
+  color: #06206a;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.site-nav .main-menu .sub-menu li a:hover,
+.site-nav .main-menu .sub-menu li a:focus {
+  background: #e8f1ff;
+  text-decoration: none;
+}
+
+/* ===== Optional: make it horizontal on wide screens ===== */
+@media (min-width: 768px) {
+  .site-nav .main-menu { display: flex; gap: 16px; align-items: center; }
+  .site-nav .main-menu > li { margin: 0; }
+  .site-nav .main-menu li .sub-menu {
+    position: absolute; top: 100%; left: 0; margin: 8px 0 0; width: 220px;
+    display: none;      
+  }
+}
+
+.hero{
+  background-color: #06206a;
+  color: #ffffff;
+  text-align: center;
+  padding: 50px 20px;
+  width: 97%;
+  height: 100%;
+}
+
+
+.hero-banner {
+  width: 90%;
+  height: 100%;         /* adjust height */
+  object-fit: cover;     /* makes it fill without stretching */
+  border-radius: 8px;
+}
+
+.features ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;                 /* space between cards */
+}
+
+/* Each card */
+.features li{
+  width: 250px;
+  height: 40px;
+  display: flex;             /* put image and text on one line */
+  align-items: center;
+  gap: 10px;
+
+  background-color: #06206a;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+/* The images */
+.features li img{
+  width: 32px;
+  height: 32px;
+  object-fit: contain;       /* keep original proportions */
+  display: block;
+}
+
+/* Optional: text styling inside the li (if you wrap text in <span>) */
+.features li span{
+  color: white;;
+  font-weight: 600;
+}
+
+/* Subtle hover */
+.features li:hover{
+  filter: brightness(1.02);
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  transition: .2s ease;
+}
+
+/* Make icons a bit larger on wider screens */
+@media (max-width: 1500px){
+  .features li img{ width: 36px; height: 36px; }
+  .hero {
+    position: relative;
+    background-color: #06206a;
+    color: #ffffff;
+    text-align: center;
+    padding: 50px 20px;
+    width: 100%;
+  }
+
+}
+
+/* Footer Styles */
+.site-footer {
+    background: #86bbf7;
+    padding: 15px;
     text-align: center;
     margin-top: 20px;
 }
 
-.site-footer p{
+.site-footer p {
+    margin: 5px 0;
     color: #06206a;
-    font-size: 15px;
+    font-size: 14px;
 }
 
-.site-footer .back-to-top{
+.site-footer .back-to-top {
     text-decoration: none;
     color: #06206a;
     font-size: 13px;
 }
-.site-footer .back-to-top:hover{
+
+.site-footer .back-to-top:hover {
     color: #1e3c8c;
     text-decoration: underline;
 }
-.site-nav .main-menu{
-    list-style: none;
-    display: block;
-}
-.site-nav .main-menu > li{
-    margin: 10px;
-}
-.site-nav .main-menu > li > a{
-   display: block;
-   padding: 10px 15px;
-   color: #06206a;
-   font-weight: 600;
-   text-decoration: none;
-   border-radius: 10px;
-}
-.site-nav .main-menu > li > a:hover{
-  background-color: #C3E1EB;
-  text-decoration: none;
-}
-.site-nav .main-menu >li.corrent-menu-item > a,
-.site-nav .main-menu >li.corrent-page-item > a{
-    background-color: #ffffff;
-    color: #06206a;
-    text-decoration: none;
-}
-.site-nav .main-menu li .sub-menu{
-    list-style: none;
-    margin: 10px;
-    padding: 10px;
-    display: none;
-    border: 1px solid #dbe7f5;
-    border-radius: 10px;
-}
-.site-nav .main-menu >li:hover >.sub-menu,
-.site-nav .main-menu >li:focus-within >.sub-menu{
-    display: block;
-}
-.site-nav .main-menu .sub-menu li a{
-    display: block;
-    padding: 10px 13px;
-    column-rule-color: #06206a;
-    text-decoration: none;
-    border-radius: 10px;
-}
-
-.site-nav .main-menu .sub-menu > li > a:hover,
-.site-nav .main-menu .sub-menu > li > a:focus{
-    background-color: #e8f1ff;
-    text-decoration: none;
-}
-@media (min-width: 750px){
-    .site-nav .main-menu{
-        display: flex;
-        gap: 15px;
-        align-items: center;
-    }
-    .site-nav .main-menu > li{
-        margin: 0px;
-    }
-    .site-nav .main-menu > li .sub-menu{
-        position: absolute;
-        top: 10px;
-        display: none;
-    }
-}
-
