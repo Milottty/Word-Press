@@ -1,11 +1,56 @@
 /*
-Theme Name: Digital School
-Template: word-press
+Theme Name: Digital School test
 Author: Milot Ymeri
-Description: The Digital School the , e is a modern, responsive, and user-friendly wordprees
+Description:  The Digital School Blog Theme is a modern, responsive, and user-friendly WordPress theme designed specifically for showcasing educational content, updates, and student achievements from Digital School. Built with clean and minimal design principles, this theme ensures an engaging reading experience while keeping the focus on content.
 Version: 1.0
-Tags: Cool, school, PHP
+Tags: cool, blue, mobile ready, school, digital
 */
+
+:root{ color-scheme: light; }
+.dark{ color-scheme: dark; }
+.dark body{ background:#0b1533; }
+.dark .site-header, .dark .site-footer{ background:#0e1d4a; }
+.dark .blog-item{ background:#121e4f; border-color: #1f2c66; color:#e8ecff; }
+.dark .single .post-card{ background-color: #06206a; color: white;}
+
+/* Base text */
+.dark body { color: #fff; }
+
+/* Links + headings + common text nodes */
+.dark a,
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
+.dark p, .dark li, .dark span, .dark strong, .dark em {
+  color: #fff !important;
+}
+
+/* Specific bits from your theme that set their own colors */
+.dark .site-header .site-title,
+.dark .site-header .site-tagline,
+.dark .site-nav .main-menu > li > a,
+.dark .features li span,
+.dark .blog-item__title a,
+.dark .blog-item__more,
+.dark .card-title .label,
+.dark .card-title .age,
+.dark .card-points {
+  color: #fff !important;
+}
+
+/* Optional: darker backgrounds so white text has contrast */
+.dark body { background: #0b1533; }
+.dark .site-header, .dark .site-footer { background: #0e1d4a; }
+.dark .blog-item { background: #121e4f; border-color: #1f2c66; }
+.dark .features li { background: #192a6a; }
+.dark .site-nav .main-menu > li > a:hover { background: rgba(255,255,255,.15); }
+.dark .card-points li::before { box-shadow: 0 0 0 3px #121e4f; } /* keep green dot visible */
+
+.dark .site-nav .main-menu > li.current-menu-item > a,
+.dark .site-nav .main-menu > li.current_page_item > a,
+.dark .site-nav .main-menu > li.current-menu-ancestor > a,
+.dark .site-nav .main-menu > li.current_page_ancestor > a {
+  color: #9ec1ff !important;     /* readable blue on dark */
+  background: rgba(255,255,255,0.12);
+}
 
 .site-header {
     background: #86bbf7;
@@ -200,6 +245,164 @@ Tags: Cool, school, PHP
 
 }
 
+
+
+
+/* layout */
+.section-pad { padding: 30px 20px; }
+#curricula-heading { margin: 0 0 18px; color:#06206a; font-weight: 800; text-align: center; font-size: 40px;}
+#heading{margin: 0 0 18px; color:#06206a; font-weight: 800; text-align: center; font-size: 40px;}
+
+/* Parent: center whatever number of cards you have */
+.curricula-grid{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;   /* <-- centers the items */
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;           /* allows 2–3 to sit on one row if there’s room */
+}
+
+/* Each card has a fixed-ish width so centering is visible */
+.curricula-grid > .card{
+  flex: 0 0 320px;           /* fixed column width */
+  max-width: 100%;
+  margin: 0 auto;            /* safe centering if parent changes layout */
+  border: 0;
+  padding: 0;
+}
+
+/* accent colors by position (kept as-is) */
+.curricula-grid > .card:nth-child(1){ --accent: #6f2dbd; }
+.curricula-grid > .card:nth-child(2){ --accent: #cf2026; }
+.curricula-grid > .card:nth-child(3){ --accent: #7a98e4; }
+
+/* title + age */
+.card-title{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-family: inherit;
+}
+.card-title .label{
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--accent);
+}
+.card-title .age{
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
+/* points list */
+.card-points{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  color: #071a46;
+  font-size: 16px;
+}
+.card-points li{
+  position: relative;
+  padding-left: 42px;
+  line-height: 1.5;
+}
+.card-points li::before{
+  content: "";
+  position: absolute; left: 0; top: 2px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #7ac943;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+/* small tweaks */
+@media (max-width: 600px){
+  .card-title .label{ font-size: 20px; }
+  .card-title .age{ font-size: 40px; }
+  .card-points{ font-size: 18px; }
+}
+
+/* Container */
+.blog-list {
+  padding: 30px 20px;
+}
+
+@media (min-width: 800px) {
+  .blog-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Card look */
+
+.blog-title{
+  margin: 0 0 18px; color:#06206a; font-weight: 800; text-align: center; font-size: 40px;
+}
+.blog-list {
+  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: 1fr;   /* mobile: single column */
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  .blog-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* max two per row */
+  }
+}
+
+/* Card look */
+.blog-item {
+  background: #fff;
+  border: 1px solid #dbe7f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.05);
+  padding: 16px;
+}
+
+/* Title-only style */
+.blog-item__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+  color: #06206a;
+}
+.blog-item__title a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+.blog-item__title a:hover {
+  text-decoration: underline;
+}
+
+/* Optional: center the page title */
+.blog-title {
+  grid-column: 1 / -1; /* span full width above cards */
+  color:#06206a;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+/* Pagination row spans full width too */
+.pagination { grid-column: 1 / -1; }
+
+
+
+
 /* Footer Styles */
 .site-footer {
     background: #86bbf7;
@@ -224,3 +427,46 @@ Tags: Cool, school, PHP
     color: #1e3c8c;
     text-decoration: underline;
 }
+
+
+
+.blog-list {
+  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: 1fr;   /* mobile: single column */
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  .blog-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* max two per row */
+  }
+}
+
+/* Scope to single post view */
+.single .single-post { padding: 40px 20px; display:flex; justify-content:center; }
+
+.single .post-card {
+  background:#fff;
+  border:1px solid #dbe7f5;
+  border-radius:16px;
+  box-shadow:0 6px 25px rgba(0,0,0,.08);
+  max-width:800px; width:100%;
+  overflow:hidden;
+}
+
+.single .post-thumb img { width:100%; height:400px; object-fit:cover; display:block; }
+
+.single .post-content { padding:24px; }
+
+.single .post-title { font-size:40px; color:#06206a; margin:0 0 12px; line-height:1.3; }
+
+.single .post-body { color:#071a46; font-size:16px; line-height:1.7; }
+.single .post-body p { margin:0 0 16px; font-size: 20px;}
+.single .post-body img { width:100%; border-radius:10px; margin:16px 0; }
+
+@media (max-width:700px){
+  .single .post-title{ font-size:26px; }
+  .single .post-thumb img{ height:250px; }
+}
+
