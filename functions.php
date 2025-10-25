@@ -17,4 +17,14 @@ if(!function_exists('ds_menu')){
 
 add_action('after_setup_theme', 'ds_menu');
 
+
+add_action('wp_enqueue_scripts', function(){
+    if(is_page_template('aboutus')){
+        wp_enqueue_scripts(
+            'tailwind-paly', 
+            'https://cdn.tailwindcss.com'
+        );
+    }
+});
+
 ?>
